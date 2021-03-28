@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/tailwind.min.css">
+    <link rel="stylesheet" href="./css/hamburgers.min.css">
+    <script src="./js/alpine.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    body{
+        font-family: 'Quicksand'
+    }
+</style>
+<body>
+    <!-- container -->
+    <div class="h-screen w-screen flex lg:flex-row flex-col" style="background-color: rgb(247, 247, 247);" x-data="{ openNav:  false, active: false}">
+        <!--Navigation Bar-->
+        <div class="lg:hidden fixed bg-white z-40 p-2 w-full lg:absolute" @click="openNav = ! openNav">
+            <div
+              class="hamburger text-white bg-gray-100 rounded-lg float-left is-active mx-auto w-max"
+              :class="{ 'hamburger--3dx': active == true}"
+             
+            >
+              <div class="hamburger-box" @click="active = ! active">
+                <div class="hamburger-inner"></div>
+              </div>
+            </div>
+          </div>
+    <!--Navigation Bar-->
+        <!-- left pane -->
+        <div class="lg:w-4/12 lg:block z-20 h-screen bg-white px-10 py-4 pt-24 justify-center text-gray-500" :class="{ 'hidden transition duration-300 ease-in': !openNav }">
+            <ul class="lg: w-56">
+                <li class="px-4 py-2 bg-blue-50 text-blue-600 border-l-4 border-blue-500"><i class="px-1 -ml-1 fa fa-home"></i> Home</li>
+                <li class="px-4 py-2"><i class="px-1 fa fa-compass"></i> Explore Topics</li>
+                <li class="px-4 py-2"><i class="px-1 fa fa-question"></i> My Topics</li>
+            <li class="px-4 py-2"><i class="px-1 fa fa-comment-alt"></i> My Answers</li>
+        </ul>
+        </div>
+        <!-- left pane -->
+        <!-- center feed-->
+        <div class="lg:pt-24 lg:px-10 lg:w-8/12 lg:order-2 order-last" :class="{ 'overflow-hidden': openNav }">
+            <!--Post Card-->
+            <div class="px-4 py-3 divide-y bg-white m-2">
+                <div class="py-1 flex items-center">
+                    <div class="flex">
+                        <button class="flex items-center">
+                            <div class="w-8 h-8 bg-gray-100 border border-gray-200 rounded-full m-2"></div>
+                            <h1 class="font-semibold text-gray-500 text-sm">Abubakar Isah</h1>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h1 class="text-xl lg:text-2xl font-semibold text-black">What does a Full Stack do?</h1>
+                    <p class="text-xs lg:text-sm text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, necessitatibus quam! Blanditiis, repellat. Maiores, atque accusantium illum recusandae sint velit itaque reprehenderit, harum, a doloribus quam nulla eaque quae eum.</p>
+                    <!-- <div class="bg-red-400 w-full h-2 overflow-hidden">
+                        <div class="w-32 h-full bg-green-500"></div>
+                    </div> -->
+
+                    <div class="flex py-3">
+                        <button class="h-10 w-10 border-2 focus:outline-none transition duration-300 border-green-200 hover:bg-green-500 hover:text-white text-green-500 rounded-full"><i class="fa fa-thumbs-up"></i></button>
+                        <button class="h-10 w-10 border-2 focus:outline-none transition duration-300 border-red-200 hover:bg-red-500 hover:text-white text-red-500 text-red-500 rounded-full ml-2"><i class="fa fa-thumbs-up fa-flip-both"></i></button>
+                        <div class="px-8 flex items-center">
+                            <button class="text-gray-400 focus:outline-none flex items-center">
+                                <i class="fa fa-comment-alt"></i>
+                                <h5 class="text-sm px-2">63</h5>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Post Card-->
+            <!--Post Card-->
+            <div class="px-4 py-3 divide-y bg-white m-2">
+                <div class="py-1 flex items-center">
+                    <div class="flex">
+                        <button class="flex items-center">
+                            <div class="w-8 h-8 bg-gray-100 border border-gray-200 rounded-full m-2"></div>
+                            <h1 class="font-semibold text-gray-500 text-sm">Abubakar Isah</h1>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h1 class="text-xl lg:text-2xl font-semibold text-black">What does a Full Stack do?</h1>
+                    <p class="text-xs lg:text-sm text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, necessitatibus quam! Blanditiis, repellat. Maiores, atque accusantium illum recusandae sint velit itaque reprehenderit, harum, a doloribus quam nulla eaque quae eum.</p>
+                    <!-- <div class="bg-red-400 w-full h-2 overflow-hidden">
+                        <div class="w-32 h-full bg-green-500"></div>
+                    </div> -->
+
+                    <div class="flex py-3">
+                        <button class="h-10 w-10 border-2 focus:outline-none transition duration-300 border-green-200 hover:bg-green-500 hover:text-white text-green-500 rounded-full"><i class="fa fa-thumbs-up"></i></button>
+                        <button class="h-10 w-10 border-2 focus:outline-none transition duration-300 border-red-200 hover:bg-red-500 hover:text-white text-red-500 text-red-500 rounded-full ml-2"><i class="fa fa-thumbs-up fa-flip-both"></i></button>
+                        <div class="px-8 flex items-center">
+                            <button class="text-gray-400 focus:outline-none flex items-center">
+                                <i class="fa fa-comment-alt"></i>
+                                <h5 class="text-sm px-2">63</h5>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Post Card-->
+            <!--Post Card-->
+            <div class="px-4 py-3 divide-y bg-white m-2">
+                <div class="py-1 flex items-center">
+                    <div class="flex">
+                        <button class="flex items-center">
+                            <div class="w-8 h-8 bg-gray-100 border border-gray-200 rounded-full m-2"></div>
+                            <h1 class="font-semibold text-gray-500 text-sm">Abubakar Isah</h1>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h1 class="text-xl lg:text-2xl font-semibold text-black">What does a Full Stack do?</h1>
+                    <p class="text-xs lg:text-sm text-gray-400">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, necessitatibus quam! Blanditiis, repellat. Maiores, atque accusantium illum recusandae sint velit itaque reprehenderit, harum, a doloribus quam nulla eaque quae eum.</p>
+                    <!-- <div class="bg-red-400 w-full h-2 overflow-hidden">
+                        <div class="w-32 h-full bg-green-500"></div>
+                    </div> -->
+
+                    <div class="flex py-3">
+                        <button class="h-10 w-10 border-2 focus:outline-none transition duration-300 border-green-200 hover:bg-green-500 hover:text-white text-green-500 rounded-full"><i class="fa fa-thumbs-up"></i></button>
+                        <button class="h-10 w-10 border-2 focus:outline-none transition duration-300 border-red-200 hover:bg-red-500 hover:text-white text-red-500 text-red-500 rounded-full ml-2"><i class="fa fa-thumbs-up fa-flip-both"></i></button>
+                        <div class="px-8 flex items-center">
+                            <button class="text-gray-400 focus:outline-none flex items-center">
+                                <i class="fa fa-comment-alt"></i>
+                                <h5 class="text-sm px-2">63</h5>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Post Card-->
+            
+        </div>
+        <!-- center feed-->
+        <!-- right pane -->
+        <div class="pt-24 px-8 lg:w-4/12 lg:block lg:order-last order-first">
+            <div class="fixed lg:bottom-auto lg:right-auto right-0 bottom-0 m-8">
+                <button class="lg:px-8 lg:py-2 lg:w-auto w-10 h-10 rounded-full bg-blue-600 text-white lg:rounded-xl shadow focus:outline-none font-semibold"><span class="lg:block hidden">Start a new topic</span><span class="block lg:hidden"><i class="fa fa-pen"></i></span></button>
+                <!-- <div class="flex bg-white p-4 shadow text-white font-semibold rounded-xl">
+                    <button class="bg-green-400 px-4 py-1 shadow rounded-full mx-2">Login</button>
+                    <button class="bg-blue-400 px-4 py-1 shadow rounded-full">Sign up</button>
+                </div> -->
+            </div>
+        </div>
+        <!-- right pane -->
+    </div>
+    <!-- container -->
+</body>
+</html>
