@@ -16,14 +16,14 @@
         font-family: 'Quicksand'
     }
 </style>
-<body>
+<body style="background-color: rgb(247, 247, 247);">
     <!-- container -->
-    <div class="h-screen w-screen flex lg:flex-row flex-col" style="background-color: rgb(247, 247, 247);" x-data="{ openNav:  false, active: false}">
+    <div class="h-screen w-screen flex lg:flex-row flex-col" x-data="{active: false}">
         <!--Navigation Bar-->
         <div class="lg:hidden shadow fixed bg-white z-40 p-2 w-full lg:absolute" >
             <div
               class="hamburger text-white bg-gray-100 rounded-lg float-left is-active mx-auto w-max"
-              :class="{ 'hamburger--3dx': active == true}" @click="openNav = ! openNav; active = ! active"
+              :class="{ 'hamburger--3dx': active == true}" @click="active = ! active"
              
             >
               <div class="hamburger-box">
@@ -33,11 +33,11 @@
           </div>
         <!--Navigation Bar-->
         <!-- left pane --> 
-        <div class="lg:w-4/12 lg:block shadow-xl lg:relative fixed z-20 h-screen lg:bg-transparent bg-white px-10 py-4 lg:pt-24 justify-center text-gray-500" 
+        <div class="lg:w-4/12 lg:block lg:relative fixed z-20 h-screen lg:bg-transparent bg-white px-10 py-4 lg:pt-24 justify-center text-gray-500" 
         :class="{ 'hidden transition duration-300 ease-in': !active}"
         @click.away="active = false"
         >
-            <ul class="h-screen pt-24 lg:fixed fixed bg-white lg:bg-transparent w-56">
+            <ul class="h-screen lg:pt-0 pt-24 fixed bg-white lg:bg-transparent w-56">
                 <li class="px-4 py-2 bg-blue-50 text-blue-600 border-l-4 border-blue-500"><i class="px-1 -ml-1 fa fa-home"></i> Home</li>
                 <li class="px-4 py-2"><i class="px-1 fa fa-compass"></i> Explore Topics</li>
                 <li class="px-4 py-2"><i class="px-1 fa fa-question"></i> My Topics</li>
@@ -46,7 +46,7 @@
         </div>
         <!-- left pane -->
         <!-- center feed-->
-        <div class="lg:pt-24 lg:px-10 lg:w-8/12 lg:order-2 order-last" :class="{ 'overflow-hidden': openNav }">
+        <div class="lg:pt-24 lg:px-10 lg:w-8/12 lg:order-2 order-last" :class="{ 'overflow-hidden': active }">
             <!--Post Card-->
             <div class="px-4 py-3 divide-y bg-white m-2">
                 <div class="py-1 flex items-center">
